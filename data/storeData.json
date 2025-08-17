@@ -1,0 +1,132 @@
+{
+  "storeId": "store123",
+  "storeName": "Tech Paradise",
+  "description": "The best place to buy your gadgets!",
+  "logo": "/images/logo.png",
+  "categories": [
+    {
+      "id": "1",
+      "name": "Phones"
+    },
+    {
+      "id": "3",
+      "name": "Accessories"
+    },
+    {
+      "id": "4",
+      "name": "Wearables"
+    },
+    {
+      "id": "5",
+      "name": "Gaming"
+    },
+    {
+      "id": "96238a66-fee5-48c6-9248-1a2ddd6bd810",
+      "name": "Laptops"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod5",
+      "name": "Dell XPS 13",
+      "price": 1399,
+      "category": "Laptops",
+      "description": "Compact, powerful Windows laptop.",
+      "image": "/images/dell-xps.jpg",
+      "featured": false,
+      "quantity": "4",
+      "archived": false,
+      "addedAt": "2025-08-01T10:15:00Z",
+      "editedAt": "2025-08-14T14:55:17Z"
+    },
+    {
+      "id": "prod7",
+      "name": "Sony WH-1000XM5",
+      "price": 349,
+      "category": "Accessories",
+      "description": "Industry-leading noise cancelling headphones.",
+      "image": "/images/sony-wh1000xm5.jpg",
+      "featured": true,
+      "quantity": 6,
+      "archived": false,
+      "addedAt": "2025-08-05T14:30:00Z",
+      "editedAt": "2025-08-14T13:22:08Z"
+    },
+    {
+      "id": "prod8",
+      "name": "iPhone 14 Pro",
+      "price": 1099,
+      "category": "Phones",
+      "description": "Apple’s latest flagship smartphone with powerful features.",
+      "image": "/images/iphone14pro.jpg",
+      "featured": true,
+      "quantity": 10,
+      "archived": false,
+      "addedAt": "2025-08-08T09:45:00Z",
+      "editedAt": "2025-08-14T12:56:05Z"
+    },
+    {
+      "id": "prod9",
+      "name": "Fitbit Charge 5",
+      "price": 149,
+      "category": "Wearables",
+      "description": "Advanced fitness tracker with heart rate and sleep monitoring.",
+      "image": "/images/fitbit-charge5.jpg",
+      "featured": false,
+      "quantity": 15,
+      "archived": false,
+      "addedAt": "2025-08-10T17:20:00Z"
+    },
+    {
+      "id": "prod10",
+      "name": "Logitech G502 Hero",
+      "price": 59,
+      "category": "Gaming",
+      "description": "High performance wired gaming mouse with customizable buttons.",
+      "image": "/images/logitech-g502.jpg",
+      "featured": true,
+      "quantity": 8,
+      "archived": false,
+      "addedAt": "2025-08-12T12:05:00Z",
+      "editedAt": "2025-08-14T13:32:54Z"
+    },
+    {
+      "id": "prod11",
+      "name": "Samsung Galaxy S22",
+      "price": 999,
+      "category": "Phones",
+      "description": "Samsung's flagship Android phone with stunning display.",
+      "image": "/images/galaxy-s22.jpg",
+      "featured": false,
+      "quantity": 7,
+      "archived": false,
+      "addedAt": "2025-08-13T19:10:00Z"
+    }
+  ],
+  "shoppingCart": [
+    {
+      "id": "prod5",
+      "name": "Dell XPS 13",
+      "price": 1399,
+      "category": "Laptops",
+      "description": "Compact, powerful Windows laptop.",
+      "image": "/images/dell-xps.jpg",
+      "featured": false,
+      "quantity": 1,
+      "archived": false,
+      "stock": 3
+    },
+    {
+      "id": "prod10",
+      "name": "Logitech G502 Hero",
+      "price": 59,
+      "category": "Gaming",
+      "description": "High performance wired gaming mouse with customizable buttons.",
+      "image": "/images/logitech-g502.jpg",
+      "featured": true,
+      "quantity": 2,
+      "archived": false,
+      "stock": 8
+    }
+  ]
+}

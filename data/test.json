@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": "user1",
+      "name": "Elhassane",
+      "email": "elhassane@example.com",
+      "shoppingCart": [
+        {
+          "id": "prod1",
+          "name": "iPhone 15 Pro",
+          "price": 1099,
+          "quantity": 2,
+          "category": "Phones",
+          "image": "/images/iphone15.jpg"
+        }
+      ]
+    },
+    {
+      "id": "user2",
+      "name": "Alice",
+      "email": "alice@example.com",
+      "shoppingCart": []
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 101,
+      "items": [
+        { "productId": 1, "name": "Laptop", "quantity": 1, "price": 1200 },
+        { "productId": 3, "name": "Mouse", "quantity": 2, "price": 25 }
+      ],
+      "total": 1250,
+      "status": "pending",
+      "createdAt": "2025-07-26T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "userId": 102,
+      "items": [
+        { "productId": 2, "name": "Keyboard", "quantity": 1, "price": 70 }
+      ],
+      "total": 70,
+      "status": "delivered",
+      "createdAt": "2025-07-20T14:10:00Z"
+    }
+  ]
+}
