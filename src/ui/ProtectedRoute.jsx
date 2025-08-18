@@ -29,9 +29,9 @@ const LoadingSpinner = styled.div`
   }
 `;
 
-function ProtectedRoute({ children }) {
+function ProtectedRoute({ children, allowedRoles = [] }) {
   const navigate = useNavigate();
-  const { isAuthenticated, loading } = useUser();
+  const { user, isAuthenticated, loading } = useUser();
 
   useEffect(() => {
     if (!loading && !isAuthenticated) {
@@ -53,6 +53,18 @@ function ProtectedRoute({ children }) {
     return null;
   }
 
+  //check role authorization if role are specified
+  if (allowedRoles.length > 0 && !allowedRoles.includes(user?.role)) {
+    return (
+      <FullPage>
+        <div style={{ textAlign: "center", padding: "2rem" }}>
+          <h2>Access Denied</h2>
+          <p>You do not have permission to access this page.</p>
+          <button onClick={() => navigate(-1)}>Go Back</button>
+        </div>
+      </FullPage>
+    );
+  }
   // Render protected content
   return children;
 }

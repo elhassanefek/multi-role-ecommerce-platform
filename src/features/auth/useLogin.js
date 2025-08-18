@@ -15,22 +15,26 @@ export function useLogin() {
     isLoading: isLoggingIn,
     error,
   } = useMutation({
-    mutationFn: async ({ email, password }) => {
+    mutationFn: async ({ email, password, role }) => {
       const { data } = await axios.get(
-        `${API_URL}?email=${email}&password=${password}`
+        `${API_URL}?email=${email}&password=${password}&$role=${role}`
       );
       if (data.length === 0) {
-        throw new Error("Invalid email or password");
+        throw new Error("Invalid credentials or role");
       }
       return data[0];
     },
     onSuccess: (userData) => {
       console.log(userData);
       setUser(userData);
-      toast.success(`Welcome back, ${userData.email}`);
+      toast.success(`Welcome back, ${userData.name || userData.email}`);
 
-      // Navigate to seller dashboard after successful login
-      navigate("/seller/dashboard", { replace: true });
+      //role based navigation
+      if (userData.role === "seller") {
+        navigate("/seller/dashboard", { replace: true });
+      } else if (userData.role === "customer") {
+        navigate("/store", { replace: true });
+      }
     },
     onError: (error) => {
       toast.error(error.message);
