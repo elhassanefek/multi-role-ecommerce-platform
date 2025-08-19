@@ -35,6 +35,7 @@ import CustomerLoginForm from "./features/auth/CustomerLoginForm";
 import SellerLoginForm from "./features/auth/SellerLoginForm";
 import CustomerSignupForm from "./features/auth/CustomerSignupForm";
 import SellerSignupForm from "./features/auth/SellerSignupForm";
+import Account from "./pages/seller/Account";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -119,6 +120,7 @@ function App() {
                     {/* <Route path=":orderId" element={<OrderDetailPage />} /> */}
                   </Route>
                   <Route path="customers" element={<Customers />} />
+                  <Route path="account" element={<Account />} />
                 </Route>
 
                 {/* Admin Routes - Only admins can access  */}
