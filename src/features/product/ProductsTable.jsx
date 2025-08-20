@@ -7,6 +7,7 @@ import { applyProductsFilters } from "./filterUtils";
 import { useProductFilter } from "../../contexts/ProductFilterContext";
 import { useCategories } from "../categories/useCategories";
 import Pagination from "../../ui/Pagination";
+import Menus from "../../ui/Menus";
 function ProductsTable() {
   const { products, isLoading, error } = useSellerProducts();
   const [searchParams] = useSearchParams();
@@ -30,24 +31,28 @@ function ProductsTable() {
   });
 
   return (
-    <Table columns="3fr 2fr 1.5fr 2.2fr 1fr 1fr">
-      <Table.Header>
-        <div>Name</div>
-        <div>Category</div>
-        <div>Quantity</div>
-        <div>Price</div>
-        <div>Featured</div>
-        <div></div>
-      </Table.Header>
+    <Menus>
+      <Table columns="3fr 2fr 1.5fr 2.2fr 1fr 3.2fr ">
+        <Table.Header>
+          <div>Name</div>
+          <div>Category</div>
+          <div>Quantity</div>
+          <div>Price</div>
+          <div>Featured</div>
+          <div></div>
+        </Table.Header>
 
-      <Table.Body
-        data={sortedProducts}
-        render={(product) => <ProductRow product={product} key={product.id} />}
-      />
-      <Table.Footer>
-        <Pagination count={20} />
-      </Table.Footer>
-    </Table>
+        <Table.Body
+          data={sortedProducts}
+          render={(product) => (
+            <ProductRow product={product} key={product.id} />
+          )}
+        />
+        <Table.Footer>
+          <Pagination count={20} />
+        </Table.Footer>
+      </Table>
+    </Menus>
   );
 }
 

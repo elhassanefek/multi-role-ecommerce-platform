@@ -25,7 +25,7 @@ function Customers() {
     <>
       <Row type="horizontal">
         <Heading as="h1">All Customers</Heading>
-        <Search query={query} setQuery={setQuery} elements="products" />
+        <Search query={query} setQuery={setQuery} elements="customers" />
 
         <CustomerTableOperations />
       </Row>
