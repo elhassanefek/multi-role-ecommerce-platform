@@ -38,6 +38,7 @@ const FilterButton = forwardRef((props, ref) => {
         ref={ref}
         {...props}
         $variant={hasActiveFilters() ? "primary" : "secondary"}
+        className="flex items-center gap-1"
       >
         <FaFilter /> Filter
       </Button>

@@ -8,6 +8,7 @@ import CategoryFilter from "../categories/CategoryFilter";
 import { useFilter } from "../../hooks/useFilter";
 import { useStore } from "../../contexts/StoreContext";
 import { useProducts } from "../../features/product/useProducts";
+
 function StoreFront() {
   const { storeId } = useParams();
   const { query, setQuery } = useProductsContext();
@@ -27,41 +28,85 @@ function StoreFront() {
       : filterProducts(featuredProducts, "", selectedCategory);
 
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error :{error}</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
-      <StoreNav>
-        <NavLink to="products">Products</NavLink>
-        <CategoryFilter />
-        <Search query={query} setQuery={setQuery} elements="products" />
-        {query.trim() && (
-          <NumResults results={visibleProducts} value={"Product"} />
-        )}
-        <NavLink to="shoppingCart"> Cart </NavLink>
-        <NavLink to="my-orders"> My Orders </NavLink>
-      </StoreNav>
-      {!query.trim() ? (
-        <>
-          <h1>Welcome to store {storeId}</h1>
+    <div className="min-h-screen w-full bg-gray-50">
+      {/* Navigation Header - Full Width */}
+      <div className="bg-white shadow-lg border-b border-gray-200 p-4 w-full sticky top-0 z-10">
+        <StoreNav>
+          <div className="flex items-center gap-6">
+            <NavLink
+              to="products"
+              className="text-gray-700 font-medium hover:text-indigo-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-indigo-50"
+            >
+              Products
+            </NavLink>
+            <CategoryFilter />
+          </div>
+          <div className="flex-1 max-w-md mx-4">
+            <Search query={query} setQuery={setQuery} elements="products" />
+          </div>
 
-          <h2>Featured Products</h2>
-        </>
-      ) : null}
+          <div className="flex items-center gap-4">
+            {query.trim() && (
+              <NumResults
+                results={visibleProducts}
+                value={"Product"}
+                className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full"
+              />
+            )}
+            <NavLink
+              to="shoppingCart"
+              className="text-gray-700 font-medium hover:text-indigo-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-indigo-50"
+            >
+              Cart
+            </NavLink>
+            <NavLink
+              to="my-orders"
+              className="text-gray-700 font-medium hover:text-indigo-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-indigo-50"
+            >
+              My Orders
+            </NavLink>
+          </div>
+        </StoreNav>
+      </div>
 
-      <ul>
-        {visibleProducts.length > 0 ? (
-          visibleProducts.map((product) => (
-            <li key={product.id}>
-              <Product product={product} link={`products/${product.id}`} />
-            </li>
-          ))
-        ) : (
-          <p>
-            {query ? "No products found" : "No Featured Products available"}
-          </p>
-        )}
-      </ul>
+      {/* Main Content Area - Full Width with Padding */}
+      <div className="w-full px-8 py-6">
+        {!query.trim() ? (
+          <div className="mb-8">
+            <h1 className="text-2xl text-blue-500 mb-4">
+              Welcome to store {storeId}
+            </h1>
+            <h2 className="text-xl font-semibold text-gray-800 mb-6">
+              Featured Products
+            </h2>
+          </div>
+        ) : null}
+
+        {/* Products Grid/List */}
+        <div className="w-full">
+          {visibleProducts.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {visibleProducts.map((product) => (
+                <div
+                  key={product.id}
+                  className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 p-4"
+                >
+                  <Product product={product} link={`products/${product.id}`} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-gray-600 text-lg">
+                {query ? "No products found" : "No Featured Products available"}
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

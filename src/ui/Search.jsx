@@ -27,6 +27,11 @@ const SearchInput = styled.input`
   &::placeholder {
     color: var(--color-grey-400);
   }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
 `;
 function Search({ query, setQuery, elements }) {
   const inputEl = useRef(null);

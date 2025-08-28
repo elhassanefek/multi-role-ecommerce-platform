@@ -4,14 +4,23 @@ function CategoryFilter() {
 
   return (
     <div>
-      <label htmlFor="category-select">Categories</label>
+      <label htmlFor="category-select" className="text-gray-700 font-medium">
+        Categories
+      </label>
       <select
         value={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
+        className="text-gray-700 font-medium"
       >
-        <option value="">All Categories</option>
+        <option value="" className="text-gray-700 font-medium">
+          All Categories
+        </option>
         {categories.map((cat) => (
-          <option key={cat.id} value={cat.name}>
+          <option
+            key={cat.id}
+            value={cat.name}
+            className="text-gray-700 font-medium"
+          >
             {cat.name}
           </option>
         ))}
