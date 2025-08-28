@@ -186,6 +186,6 @@ npm run dev
 ```bash
 json-server --watch data/storeData.json --port 9000
 json-server --watch data/sellerData.json --port 9001
-json-server --watch data/userData.json --port 9002
+json-server --watch data/usersData.json --port 9002
 
 ```
